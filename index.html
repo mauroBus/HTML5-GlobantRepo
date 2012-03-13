@@ -4,36 +4,28 @@
     <meta charset="utf-8">
     <title>HTML-Bootcamps-Exerc</title>
     
-	 <script type="text/javascript">
-	 	function postDisp(name){
-//   		service: welcome.hello, ??? 
-//   		params: {“name”: “[input alias on textbox]”};
-//			var url = "http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php";
+	<script type="text/javascript" src="/jquery/jquery-1.7.1.js"></script>
+	<script type="text/javascript" language="javascript">
+ 		
+	 	function postFunc(name){
+	 		prompt();
 			var url = "api/dispatcher.php";
-//			alert(name);
-//			var POST_RESULT = jQuery.post( url, {"welcome.hello", "name:"+name}, function(data) 
-//			{
-//  						  alert("Data Loaded: " + data);
-// 							} 
-// 						  );
-
-			jQuery.post( url, {service: welcome.hello, 
-					params: {“name”: “pepe”}}, 
-					function(data) {
-                $('#stage').html(data);
-                alert("mmmm");
-             }			
-			 );
-		}
-  	 </script>
+			$.post(url, {service: 'welcome.hello', params: {"name": String(name)}}, 
+							function(data){
+					 			$("#stage").html(data);
+             			} 
+             			);
+	 }
+	
+  	</script>
   
   </head>
 
   <body>
 
-	<form name="form1" >
-		<input type="button" value="Button1" onclick="postDisp(document.form1.alias.value);">
-		<input type="text" NAME="alias" VALUE="">
+	<form name="formPost" >
+		<input type="button" value="BotonPost" onclick="postFunc(document.formPost.alias.value);">
+		<input type="text" name="alias" value="">
 	</form>
 	<br/><br/>
    
