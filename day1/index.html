@@ -8,13 +8,20 @@
 	<script type="text/javascript" language="javascript">
  		
 	 	function postFunc(name){
-	 		prompt();
 			var url = "api/dispatcher.php";
 			$.post(url, {service: 'welcome.hello', params: {"name": String(name)}}, 
 							function(data){
 					 			$("#stage").html(data);
              			} 
-             			);
+             	);
+         
+         // Detectar y tratar Error:
+         // (si por ej. la url no existe...)
+         $("#stage").ajaxError( 
+         		function(event, request, settings ){
+         				$(this).html("<h1>Error in loading page.</h1>");
+          				$('#stage').css({ 'fontSize' : '10px', 'color' : 'red' });
+     				});  
 	 }
 	
   	</script>
@@ -38,7 +45,7 @@
 	
 
 	<div id="stage" >
-          PHP DATA: 
+          RESULTADO obtenido del post... 
    </div>	
 	
 	
