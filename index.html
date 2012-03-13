@@ -8,13 +8,23 @@
 	 	function postDisp(name){
 //   		service: welcome.hello, ??? 
 //   		params: {“name”: “[input alias on textbox]”};
-			var url = http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php;
-			jQuery.post( url, "name":name, 
-							wellcome.hello(data) {
-   						  alert("Data Loaded: " + data);
- 							} 
- 						  ); // ???
-  		}
+//			var url = "http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php";
+			var url = "api/dispatcher.php";
+//			alert(name);
+//			var POST_RESULT = jQuery.post( url, {"welcome.hello", "name:"+name}, function(data) 
+//			{
+//  						  alert("Data Loaded: " + data);
+// 							} 
+// 						  );
+
+			jQuery.post( url, {service: welcome.hello, 
+					params: {“name”: “pepe”}}, 
+					function(data) {
+                $('#stage').html(data);
+                alert("mmmm");
+             }			
+			 );
+		}
   	 </script>
   
   </head>
@@ -33,6 +43,11 @@
 		 document.form1.alias.select();
 		 document.form1.alias.focus();
 	</script>
+	
+
+	<div id="stage" >
+          PHP DATA: 
+   </div>	
 	
 	
 	</body>
