@@ -6,13 +6,19 @@
     
 	<script type="text/javascript" src="/jquery/jquery-1.7.1.js"></script>
 	<script type="text/javascript" language="javascript">
- 		
-	 	function postFunc(name){
+
+		// Ejs del 1 -> 8 completados.
+		 		
+	 	var postFunc = function(name){
 			var url = "api/dispatcher.php";
 			$.post(url, {service: 'welcome.hello', params: {"name": String(name)}}, 
 							function(data){
 					 			$("#stage").html(data);
-             			} 
+								//
+					 			//highlight the name: 
+             				//
+             				highName("stage", name);
+             			}
              	);
          
          // Detectar y tratar Error:
@@ -23,6 +29,33 @@
           				$('#stage').css({ 'fontSize' : '10px', 'color' : 'red' });
      				});  
 	 }
+	 
+		//
+		// HighLight the name in a div.
+		//
+		var highName = function(divId, userName) {
+			var divHTML = $('#'+String(divId)).html();
+			var startPos = divHTML.indexOf(userName);
+			var newHhtml = divHTML.substring(0,startPos) + "<u> <b>" + divHTML.substring(startPos, (userName.lenght)) + "</b> </u>" + divHTML.slice(startPos+(userName.lenght),0);
+			$('#'+String(divId)).html(newHhtml + "<br/> (Su nombre ha sido destacado)");
+		}
+		
+		
+		//
+		// Get the top of the movies
+		//
+		var getTopMovie = function() {
+	 		var url = "api/dispatcher.php";
+//   		$.get(url, service: 'movie.getTop', function(response) { console.log(response);}
+//   			);
+	 		$.get(url, { service: "movie.getTop", params: {'name': $('#alias').val()} },
+   			function(data){
+     					console.log(data);
+     					//$('#floatedDiv').html(data);
+   		}, "jsonp");
+   		
+   	}
+	
 	
   	</script>
   
@@ -33,21 +66,28 @@
 	<form name="formPost" >
 		<input type="button" value="BotonPost" onclick="postFunc(document.formPost.alias.value);">
 		<input type="text" name="alias" value="">
+		<br/><br/><br/>
+		<input type="button" value="BotonGetTopMovies" onclick="getTopMovie();">
 	</form>
 	<br/><br/>
    
 	<script src="./jquery/jquery-1.7.1.js"></script>
 	<script>
 		$(document).ready( function(){ alert("The Page is already loaded (1.3)!"); });
-		 document.form1.alias.select();
-		 document.form1.alias.focus();
+		 document.formPost.alias.select();
+		 document.formPost.alias.focus();
 	</script>
 	
 
 	<div id="stage" >
           RESULTADO obtenido del post... 
    </div>	
-	
+	<br/>
+	<br/>
+	<br/>
+	<div id="floatedDiv" style="float: left; width: 50%;" >
+           Floated Div.
+   </div>
 	
 	</body>
 	
