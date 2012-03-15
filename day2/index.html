@@ -1,0 +1,125 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>HTML-Bootcamps-Exerc</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	
+	<! Incluyo mis scrips javascripts>
+	<script src='myScripts.js'></script>
+	
+	
+	<script>
+		
+		
+		//
+		// pagina cargada.
+		//
+		$('#page1').live( 'pageinit',function(event){
+			alert("Bienvenido... (Pagina cargada correctamente)");
+			$('#alias').focus();
+			$('#alias').select();
+		});
+		
+		
+		//
+		// click en el boton de post:
+		//
+		$('#postButton').live( 'vclick',function(event){
+			
+			$.mobile.showPageLoadingMsg();
+			
+			console.log($("#alias").val());
+			postFunc($('#alias').val());
+			//setTimeout("$.mobile.hidePageLoadingMsg()",2500);
+			//$.mobile.pageLoading();
+			
+		});
+
+		//
+		// GetTop Movies
+		//
+		$('#BotonGetTopMovies').live( 'vclick',function(event){
+			getTopMovies();
+			console.log($("#alias").val());
+		});
+		
+
+		//
+		// Evento para ocultar el loading cuando se presiona ESC
+		//
+//		$('#page1').observe('dom:loaded' function () {
+//			$('panelRight').observe('click', 
+//				function (evt) {
+//					collapseRightPanel();
+//				});
+/*		$('#alias').observe('keypress', 
+				function (evt) {
+					$.mobile.hidePageLoadingMsg();
+				}
+		);
+*/		
+/*		$('#page1').keypress(function(event) {
+			if (event.keyCode == '27') {
+				event.preventDefault();
+			}
+			alert("keyp");
+			$.mobile.hidePageLoadingMsg();
+		});
+*/
+		$(document).keyup(function(e) {
+			//if (e.keyCode == 13) { $.mobile.hidePageLoadingMsg(); }     // enter
+			if (e.keyCode == 27) { //esc
+				$.mobile.hidePageLoadingMsg();
+			 }
+		});
+
+
+	</script>
+
+</head> 
+<body> 
+
+	
+
+<div data-role="page" id="page1">
+	
+	<div data-role="header">
+		<h1>HTML-Bootcamps-Exerc-Day2</h1>
+	</div><!-- /header -->
+
+	
+	<div data-role="content" data-theme="c">
+		<div><button id="postButton" type="submit">Boton Post</button></div>
+		<label for="alias">Text Input:</label>
+		<input type="text" name="name" id="alias" value="pepe" />
+		<br/><br/><br/>
+		
+		<div id="stage" >
+			Resultado obtenido del post... 
+		</div>
+		
+		<br/>
+		
+		<div><button id="BotonGetTopMovies" type="submit">Boton TopMovies</button></div>
+		<!input type="button" value="BotonGetTopMovies" onclick="getTopMovie();">
+		<div id="floatedDiv" style="float: left; width: 50%;" >
+			Floated Div...
+		</div>
+		<br/>
+
+	</div><!-- /content -->
+	
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
+

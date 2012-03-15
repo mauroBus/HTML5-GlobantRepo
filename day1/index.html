@@ -48,10 +48,13 @@
 	 		var url = "api/dispatcher.php";
 //   		$.get(url, service: 'movie.getTop', function(response) { console.log(response);}
 //   			);
-	 		$.get(url, { service: "movie.getTop", params: {'name': $('#alias').val()} },
+	 		$.get(url, { 'service': "movie.getTop", params: {'name': $('#alias').val()} },
    			function(data){
-     					console.log(data);
-     					//$('#floatedDiv').html(data);
+     					$('#floatedDiv').show('fast');
+       				$('#floatedDiv').css('background','red');
+       				console.log(data);
+     					$('#floatedDiv').html(data);
+
    		}, "jsonp");
    		
    	}
