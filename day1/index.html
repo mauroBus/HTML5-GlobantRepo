@@ -40,24 +40,43 @@
 			$('#'+String(divId)).html(newHhtml + "<br/> (Su nombre ha sido destacado)");
 		}
 		
+
+
+
+
+
+		//
+		// Obtiene las peliculas de un texto json, devuelve una lista html con las peliculas:
+		//
+		var showMovies = function(movies){
+                       var rta ="<ol>";
+                        
+                       for (var i=0; movies[i]!=null; i++) {
+                            rta += "<li value"+i+">";
+                            rta += movies[i].Name + " - Year: "+ movies[i].ReleaseYear + " - <a href="+movies[i].BoxArt.SmallUrl +" >link</a>" + " - Synopsis: " + movies[i].ShortSynopsis+"</li>";
+                       } 
+                       rta += "</ol>";
+                       $('#moviesDiv').html(rta);
+                       //$('#moviesDiv').listview('refresh');
+                }
 		
 		//
 		// Get the top of the movies
 		//
 		var getTopMovie = function() {
 	 		var url = "api/dispatcher.php";
-//   		$.get(url, service: 'movie.getTop', function(response) { console.log(response);}
-//   			);
-	 		$.get(url, { 'service': "movie.getTop", params: {'name': $('#alias').val()} },
-   			function(data){
-     					$('#floatedDiv').show('fast');
-       				$('#floatedDiv').css('background','red');
-       				console.log(data);
-     					$('#floatedDiv').html(data);
-
-   		}, "jsonp");
+			$.ajax({
+                            url: url,
+                            type: "GET",
+                            crossDomain: true,
+                            data: { service: 'movie.getTop',params: {'name': 'nnnull'}},
+                            dataType: 'json',
+                            success: function(movies){
+                                showMovies(movies);
+                           }
+                        });
    		
-   	}
+                }
 	
 	
   	</script>
@@ -69,8 +88,7 @@
 	<form name="formPost" >
 		<input type="button" value="BotonPost" onclick="postFunc(document.formPost.alias.value);">
 		<input type="text" name="alias" value="">
-		<br/><br/><br/>
-		<input type="button" value="BotonGetTopMovies" onclick="getTopMovie();">
+		<br/>
 	</form>
 	<br/><br/>
    
@@ -80,16 +98,16 @@
 		 document.formPost.alias.select();
 		 document.formPost.alias.focus();
 	</script>
-	
-
 	<div id="stage" >
-          RESULTADO obtenido del post... 
-   </div>	
+          Top Movies... 
+        </div>	
 	<br/>
 	<br/>
 	<br/>
-	<div id="floatedDiv" style="float: left; width: 50%;" >
-           Floated Div.
+        <div><input type="button" value="BotonGetTopMovies" onclick="getTopMovie();"></div>
+        <br/>
+	<div id="moviesDiv" style="float: left; width: 50%;" >
+           Top Movies Div.
    </div>
 	
 	</body>
