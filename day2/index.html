@@ -1,4 +1,9 @@
 <!DOCTYPE html> 
+
+
+<!--PARA QUE ANDE TODO OK, EL ARBOL DE CARPETAS ES HTTP://LOCALHOST/APP/{DAY1|DAY2}/INDEX.HTML-->
+
+
 <html> 
 	<head> 
 	<title>HTML-Bootcamps-Exerc</title> 
@@ -9,13 +14,17 @@
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
 	
-	<! Incluyo mis scrips javascripts>
+	<!--Incluyo mis scrips javascripts-->
 	<script src='myScripts.js'></script>
 	
 	
 	<script>
 		
-		
+		//
+		//  NO PUDE USER EL EVENTO ON() EN LUGAR DE LIVE(), NO ME FUNCIONAN LOS HANDLERS CON ON() ?¿?¿
+		//
+				
+
 		//
 		// pagina cargada.
 		//
@@ -32,9 +41,7 @@
 		$('#postButton').live( 'vclick',function(event){
 			
 			$.mobile.showPageLoadingMsg();
-			
-			console.log($("#alias").val());
-			postFunc($('#alias').val());
+			postFunc($('#alias').val(), '#stage');
 			//setTimeout("$.mobile.hidePageLoadingMsg()",2500);
 			//$.mobile.pageLoading();
 			
@@ -44,8 +51,8 @@
 		// GetTop Movies
 		//
 		$('#BotonGetTopMovies').live( 'vclick',function(event){
-			getTopMovies();
-			console.log($("#alias").val());
+			getTopMovies("#topMoviesDiv");
+			//console.log($("#alias").val());
 		});
 		
 
@@ -53,16 +60,7 @@
 		// Evento para ocultar el loading cuando se presiona ESC
 		//
 //		$('#page1').observe('dom:loaded' function () {
-//			$('panelRight').observe('click', 
-//				function (evt) {
-//					collapseRightPanel();
 //				});
-/*		$('#alias').observe('keypress', 
-				function (evt) {
-					$.mobile.hidePageLoadingMsg();
-				}
-		);
-*/		
 /*		$('#page1').keypress(function(event) {
 			if (event.keyCode == '27') {
 				event.preventDefault();
@@ -71,9 +69,9 @@
 			$.mobile.hidePageLoadingMsg();
 		});
 */
-		$(document).keyup(function(e) {
-			//if (e.keyCode == 13) { $.mobile.hidePageLoadingMsg(); }     // enter
-			if (e.keyCode == 27) { //esc
+		$(document).keyup(function(event) {
+			//if (event.keyCode == 13) { $.mobile.hidePageLoadingMsg(); }     // enter
+			if (event.keyCode == 27) { //esc
 				$.mobile.hidePageLoadingMsg();
 			 }
 		});
@@ -94,7 +92,7 @@
 
 	
 	<div data-role="content" data-theme="c">
-		<div><button id="postButton" type="submit">Boton Post</button></div>
+		<div><button id="postButton" type="submit" data-inline="true">Boton Post</button></div>
 		<label for="alias">Text Input:</label>
 		<input type="text" name="name" id="alias" value="pepe" />
 		<br/><br/><br/>
@@ -105,21 +103,149 @@
 		
 		<br/>
 		
-		<div><button id="BotonGetTopMovies" type="submit">Boton TopMovies</button></div>
+		<div><button id="BotonGetTopMovies" type="submit" data-inline="true">Boton TopMovies</button></div>
 		<!input type="button" value="BotonGetTopMovies" onclick="getTopMovie();">
-		<div id="floatedDiv" style="float: left; width: 50%;" >
-			Floated Div...
+		<div id="topMoviesDiv" style="float: left; width: 50%;" >
+			Top Movie's Div...
 		</div>
 		<br/>
+
+		
+
+	<!Load the context of sample1.php page:>
+	<a href="pages/sample1.php" data-role="button" id ="botonLoadSamplePage" data-icon="star"  data-mini="true">Load "sample1.php"</a>
+	<script> 
+		$("#botonLoadSamplePage").buttonMarkup({ inline: "true" });
+	</script>
+
+
 
 	</div><!-- /content -->
 	
 	
 	<div data-role="footer">
 		<h4>Page Footer</h4>
+		<div data-role="navbar">
+		        <ul data-role="listview" data-inset="true">
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
+				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
+				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
+			</ul>
+	    	</div>
+
 	</div><!-- /footer -->
 </div><!-- /page -->
 
+
+
+
+<!-- Start of second page -->
+<div data-role="page" id="page2">
+
+	<div data-role="header">
+		<h1>Dia 2/3 - Segunda Pagina</h1>
+	</div><!-- /header -->
+
+
+	<div data-role="content">	
+		<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is beeing clicked.</p>
+		<a href="#pageDialog" data-role="button" data-rel="dialog" data-transition="pop"  data-inline="true">Open dialog</a>
+	</div><!-- /content -->
+
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+		<div data-role="navbar">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
+				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
+				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
+			</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+<!-- Start of third page -->
+<div data-role="page" id="page3">
+
+	<div data-role="header">
+		<h1>Dia 2/3 - Tercera Pagina</h1>
+	</div><!-- /header -->
+
+
+	<div data-role="content">	
+		<p>I'm the third in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is beeing clicked.</p>
+		<a href="#pageDialog" data-role="button" data-rel="dialog" data-transition="pop"  data-inline="true">Open dialog</a>
+	</div><!-- /content -->
+
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+		<div data-role="navbar">
+		        <ul data-role="listview" data-inset="true">
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
+				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
+				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
+			</ul>
+	    	</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+<!-- Start of fourth page -->
+<div data-role="page" id="page4">
+
+	<div data-role="header">
+		<h1>Dia 2/3 - Cuarta Pagina</h1>
+	</div><!-- /header -->
+
+
+	<div data-role="content">	
+		<p>I'm the fourth in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is beeing clicked.</p>
+		<a href="#pageDialog" data-role="button" data-rel="dialog" data-transition="pop"  data-inline="true">Open dialog</a>
+	</div><!-- /content -->
+
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+		<div data-role="navbar">
+		        <ul data-role="listview" data-inset="true">
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
+				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
+				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
+			</ul>
+	    	</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+
+
+
+
+<!-- Start of DIALOG page -->
+<div data-role="page" id="pageDialog">
+
+	<div data-role="header">
+		<h1>Dia 2/3 - DIALOGO</h1>
+	</div><!-- /header -->
+
+
+	<div data-role="content">	
+		<p>Esto es un dialogo agragado a la pagina...</p>
+		<a href="#" data-role="button" id="okButton" data-inline="true" data-rel="back"> OK ->Back</a>
+			
+	</div><!-- /content -->
+</div>
 </body>
 </html>
 
