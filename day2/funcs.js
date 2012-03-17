@@ -1,4 +1,12 @@
 
+/*
+
+		SCRIPTS DE FUNCIONES para day 2-3
+
+*/
+
+
+
 
 var postFunc = function(name, divId){
 	var url = "api/dispatcher.php";
@@ -63,20 +71,38 @@ var getTopMovies = function() {
 // Muestra las peliculas almacenadas en el objeto "movies" en el div (pasado por parametro)...
 //
 var showMovies = function(movies, div){
-    var rta = "<ol data-role='listview' data-theme='g'>";
-    for (var i=0; movies[i]!=null; ++i) {
-            rta += "<li> <a href='#'> ";
-            rta += "<img src='" + movies[i].BoxArt.SmallUrl + "'/>";
-            rta += "<h2>" + movies[i].Name + "</h2>";
-            rta += "<h3>Year: " + movies[i].ReleaseYear + "</h4>";
-            rta += "<h4>" + movies[i].ShortSynopsis + "</h3>";
-            rta += "</a> </li>";
+    var rta = '';//<ol data-role="listview" data-theme="a">';
+    var i;
+    for (i=0; movies[i]!=null; ++i) {
+            rta += '<li> <a class=mli id=mli'+ i +' href="#dialogMovies" data-rel="dialog" data-transition="flip"  data-inline="true"> ';
+            rta += '<img class=mimg src="' + movies[i].BoxArt.SmallUrl + '"/>';
+            rta += '<h2>' + movies[i].Name + '</h2>';
+            rta += '<h3>Year: ' + movies[i].ReleaseYear + '</h4>';
+            rta += '<h4>' + movies[i].ShortSynopsis + '</h3>';
+            rta += '</a> </li>';
     }
-    rta += "</ol>";
     $(div).html(rta);
     $(div).listview('refresh');
+    
+    
+    //
+    //  Asocio un Data() con la info de la synopsis para permitir obtenerla 
+    //       al hacer click en la movie de la lista:
+    //
+    var l = 0;
+    var elem;
+    while (movies[l]!=null) {
+    		elem = $('#mli'+l);
+    		elem.data('li-name', movies[l].Name );
+    		elem.data('li-data', movies[l].Synopsis );
+    		elem.data('li-boxart', movies[l].BoxArt.LargeUrl);
+    		//elem.data( 'masdatos', {'li-name': movies[l].Name , 'li-data': movies[l].ShortSynopsis, 'li-boxart': '<a href=' + movies[l].BoxArt.LargeUrl + '/>' } );
+    		++l;
+    }
+    
 }
-		
+
+
 //
 // Get the top of the movies
 //
@@ -85,7 +111,6 @@ var getTopMovies = function(div) {
         $.ajax({
             url: url,
             type: "GET",
-            crossDomain: true,
             data: { service: 'movie.getTop',params: {'name': 'nnnull'}},
             dataType: 'json',
             success: function(movies){
@@ -94,3 +119,4 @@ var getTopMovies = function(div) {
         });
 
 }
+

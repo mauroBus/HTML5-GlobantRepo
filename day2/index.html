@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 
 
-<!--PARA QUE ANDE TODO OK, EL ARBOL DE CARPETAS ES HTTP://LOCALHOST/APP/{DAY1|DAY2}/INDEX.HTML-->
+<!--PARA QUE ANDE ToDo OK, EL ARBOL DE CARPETAS ES HTTP://LOCALHOST/APP/{DAY1|DAY2}/INDEX.HTML-->
 
 
 <html> 
@@ -10,75 +10,10 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.js"></script>
 	
-	<!--Incluyo mis scrips javascripts-->
-	<script src='myScripts.js'></script>
-	
-	
-	<script>
-		
-		//
-		//  NO PUDE USER EL EVENTO ON() EN LUGAR DE LIVE(), NO ME FUNCIONAN LOS HANDLERS CON ON() ?¿?¿
-		//
-				
-
-		//
-		// pagina cargada.
-		//
-		$('#page1').live( 'pageinit',function(event){
-			alert("Bienvenido... (Pagina cargada correctamente)");
-			$('#alias').focus();
-			$('#alias').select();
-		});
-		
-		
-		//
-		// click en el boton de post:
-		//
-		$('#postButton').live( 'vclick',function(event){
-			
-			$.mobile.showPageLoadingMsg();
-			postFunc($('#alias').val(), '#stage');
-			//setTimeout("$.mobile.hidePageLoadingMsg()",2500);
-			//$.mobile.pageLoading();
-			
-		});
-
-		//
-		// GetTop Movies
-		//
-		$('#BotonGetTopMovies').live( 'vclick',function(event){
-			getTopMovies("#topMoviesDiv");
-			//console.log($("#alias").val());
-		});
-		
-
-		//
-		// Evento para ocultar el loading cuando se presiona ESC
-		//
-//		$('#page1').observe('dom:loaded' function () {
-//				});
-/*		$('#page1').keypress(function(event) {
-			if (event.keyCode == '27') {
-				event.preventDefault();
-			}
-			alert("keyp");
-			$.mobile.hidePageLoadingMsg();
-		});
-*/
-		$(document).keyup(function(event) {
-			//if (event.keyCode == 13) { $.mobile.hidePageLoadingMsg(); }     // enter
-			if (event.keyCode == 27) { //esc
-				$.mobile.hidePageLoadingMsg();
-			 }
-		});
-
-
-	</script>
-
 </head> 
 <body> 
 
@@ -87,36 +22,36 @@
 <div data-role="page" id="page1">
 	
 	<div data-role="header">
-		<h1>HTML-Bootcamps-Exerc-Day2</h1>
+		<h1>HTML-Bootcamps-Exerc-Day2/3</h1>
 	</div><!-- /header -->
 
 	
 	<div data-role="content" data-theme="c">
-		<div><button id="postButton" type="submit" data-inline="true">Boton Post</button></div>
+		<div id="postDiv"><button id="postButton" type="submit" data-inline="true">Boton Post</button></div>
 		<label for="alias">Text Input:</label>
 		<input type="text" name="name" id="alias" value="pepe" />
 		<br/><br/><br/>
 		
 		<div id="stage" >
-			Resultado obtenido del post... 
+			Resultado obtenido del post...
 		</div>
 		
 		<br/>
 		
 		<div><button id="BotonGetTopMovies" type="submit" data-inline="true">Boton TopMovies</button></div>
 		<!input type="button" value="BotonGetTopMovies" onclick="getTopMovie();">
-		<div id="topMoviesDiv" style="float: left; width: 50%;" >
-			Top Movie's Div...
+		<div id="topMoviesDiv" style="float: left; width: 85%;" >
+			<label for="moviesList">Lista de las Peliculas Top:</label>
+    		<ol id="moviesList" data-role="listview" data-theme="v"></ol>
 		</div>
 		<br/>
+		<br/>
 
-		
-
-	<!Load the context of sample1.php page:>
-	<a href="pages/sample1.php" data-role="button" id ="botonLoadSamplePage" data-icon="star"  data-mini="true">Load "sample1.php"</a>
-	<script> 
-		$("#botonLoadSamplePage").buttonMarkup({ inline: "true" });
-	</script>
+                <!Load the context of sample1.php page:>
+                <a href="pages/sample1.php" data-role="button" id ="botonLoadSamplePage" data-icon="star"  data-mini="true">Load "sample1.php"</a>
+                <script> 
+        		$("#botonLoadSamplePage").buttonMarkup({ inline: "true" });
+        	</script>
 
 
 
@@ -127,10 +62,10 @@
 		<h4>Page Footer</h4>
 		<div data-role="navbar">
 		        <ul data-role="listview" data-inset="true">
-				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
-				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
-				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
-				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
+				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
+				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
 			</ul>
 	    	</div>
 
@@ -216,7 +151,7 @@
 		<h4>Page Footer</h4>
 		<div data-role="navbar">
 		        <ul data-role="listview" data-inset="true">
-				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-iconpos="right" data-transition="slideup">Pagina1</a></li>
+				<li><a href="#page1" rel="external" data-icon="star"  data-iconpos="right" data-transition="slideup">Pagina1</a></li>
 				<li><a href="#page2" rel="external" data-icon="star"  data-iconpos="right" data-transition="pop">Pagina2</a></li>
 				<li><a href="#page3" rel="external" data-icon="star"  data-iconpos="right" data-transition="flip">Pagina3</a></li>
 				<li><a href="#page4" rel="external" data-icon="star"  data-iconpos="right" data-transition="fade">Pagina4</a></li>
@@ -246,6 +181,47 @@
 			
 	</div><!-- /content -->
 </div>
+
+
+
+
+
+
+
+<!-- Start of DIALOG MOVIES -->
+<div data-role="page" id="dialogMovies">
+
+	<div data-role="header">
+		<h1>MOVIE DETAIL</h1>
+	</div><!-- /header -->
+
+
+	<div data-role="content">
+	 	<p id="movieName"> Name </p>
+	 	<p id="movie-boxart">box art</p>
+		<p id="movie-data">synopsis...!</p>
+		
+		<a href="#" data-role="button" data-inline="true" data-rel="back"> Back</a>
+	</div><!-- /content -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!--Incluyo mis javascripts-->
+	<script src='funcs.js'></script>
+	<script src='eventsHandlers.js'></script>
+	
+	
+	
+	
 </body>
 </html>
 
