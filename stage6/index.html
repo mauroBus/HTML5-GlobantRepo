@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+
+<html> 
+	<head> 
+	<title>HTML5-Bootcamps</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<script src="scripts/libs/jquery/jquery-1.7.1.min.js"></script>
+	<script src="scripts/libs/jquery/jquery.mobile-1.0.1.min.js"></script>
+	
+	
+	<script src="scripts/libs/underscore.js"></script>	
+	<script src="scripts/libs/backbone.js"></script>
+	
+   <script data-main="scripts/main" src="scripts/libs/require.js"></script>
+</head> 
+<body> 
+
+	
+
+<div data-role="page" id="page1">
+	
+	<div data-role="header">
+		<h1>HTML5-Bootcamps-Stage6</h1>
+	</div><!-- /header -->
+
+	
+	<div data-role="content" data-theme="c">
+	 	<a data-role="button" href="#addMoviePage" id='addMovieButt' >Add Movie</a>
+		<div id="movie-list">
+			<ul data-role="listview" data-divider-theme="b" data-inset="true">
+				<li data-role="list-divider" role="heading"> Movies List </li>
+			</ul>
+		</div>
+		
+      
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+<div data-role="page" id="addMoviePage">
+	
+	<div data-role="header">
+		<h1>Add Movie</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="c">
+	 	<div>
+			<label for="titleText">Movie Title:</label>
+    		<input type="text" name="titleT" id="titleText" value=""/>
+    		<label for="yearText">Movie Year:</label>
+    		<input type="text" name="yearT" id="yearText" value=""/>
+    		<label for="synText">Movie Synopsis:</label>
+    		<input type="text" name="synT" id="synText" value=""/>
+			<a data-role="button" id='add' data-rel="back">Add Movie</a>
+		</div>
+		
+      
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+</body>
+</html>
+
