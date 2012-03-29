@@ -1,0 +1,198 @@
+/* 
+    Document   : default
+    Created on : DATE
+    Author     : YOU <your@email>
+    Description:
+        CSS3 playground
+*/
+
+
+body {
+    background: none repeat scroll 0 0 #C6C4BD;
+    font: 12px arial;
+}
+
+h1 {
+    background: none repeat scroll 0 0 dodgerblue;
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px;
+}
+h1 {
+	font-family: sans-serif;
+	font-size: 32px;
+	font-weight: bold;
+	color: white;
+}
+
+.topHeader  {
+	text-align: center;
+}
+
+nav {
+    background: none repeat scroll 0 0 cadetblue;
+    border-radius: 10px 10px 10px 10px;
+    font: 18px arvo;
+    padding: 5px;
+    text-align: center;
+}
+
+nav ul li{
+	display:inline;
+}
+
+
+nav ul li a {
+/*	color: #565656;*/
+/*	float:left;*/
+/*	font-size:1.25em;*/
+	font-weight: bold;
+/*	margin: 5px 2px;*/
+/*	padding: 7px 10px 4px;*/
+/*	text-shadow: 0 1px 1px white;*/
+/*	text-transform: uppercase;*/
+}
+
+nav ul li a {
+    background: none repeat scroll 0 0 lightgrey;
+    border-bottom: 1px solid gray;
+    border-radius: 10px 10px 10px 10px;
+    border-top: 1px solid #EEEEEE;
+    color: black;
+    display: block;
+    margin: 2px;
+    padding: 8px 12px;
+    text-decoration: none;
+    display:inline;
+}
+
+
+nav ul li a:hover{
+	text-decoration:none;
+	background-color:#f0f0f0;
+}
+
+a:hover {
+    background: none repeat scroll 0 0 cornflowerblue;
+    color: #EEA73D;
+}
+
+article video {
+	text-align: center;
+}
+
+
+
+
+
+article header h2 {
+	text-align: center;
+   font-size: medium;
+}
+
+
+
+
+article {
+/*    -moz-column-count: 2;
+    -webkit-column-count: 2;
+*/
+    /*[-moz- | -webkit-]column-gap: 20px;*/
+
+/*    height: 360px;
+*/    
+
+	width:50%;
+	float: left;
+	display:block;
+	
+	
+	/*
+	 *  5.k
+	 */
+   -moz-box-shadow: 10px 10px 10px #000; /* Firefox */
+   -webkit-box-shadow: 10px 10px 10px #000; /* Safari, Chrome */
+   box-shadow: 10px 10px 10px #000; /* CSS3 */
+	
+}
+
+/*
+ *  5.d
+ *  No lo pude hacer sin usar media queries...
+ */
+@media (max-width: 800px) {
+    article{
+       float: none;
+       width: 100%;
+    }
+}
+
+
+
+
+
+/*
+ * 5.e
+ */
+span.hiOne {
+	background-color: yellow;
+} 
+span.hiTwo {
+	background-color: purple;
+}
+span.hiThree {
+	background-color: navy; 
+}
+
+/*
+ * 5.f
+ */
+span[class^="hi"] {
+	background-color: teal;
+}
+
+/*
+ * 5.g
+ */
+span[class$="One"]{
+	background-color: silver;
+}
+
+/*
+ * 5.h
+ */
+span[class]{ 
+	background-color: red; 
+} 
+
+
+/*
+ * 5.i
+ */
+article header a:nth-of-type(1){
+	color: blue;
+}
+article header a:nth-of-type(2) {
+	color: yellow;
+}
+
+
+/*
+ * 5.j
+ */
+p:empty {
+	display: none;
+}
+
+
+/*
+ * 5.l
+ */
+aside{
+	text-align: center;
+   -moz-transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-o-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+}
+
+

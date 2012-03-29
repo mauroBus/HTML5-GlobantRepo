@@ -1,0 +1,211 @@
+
+
+/*
+ *  Exercise 2.
+ */
+@media screen and (min-width: 1200px) {
+  article p {
+    -moz-column-count: 4;
+	 -webkit-column-count: 4;
+  }
+  
+  figure {
+  	  height: auto;
+  	  width: auto;
+  }
+  
+}
+
+
+/*
+ *  Exercise 3.
+ */
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  article p {
+    -moz-column-count: 3;
+	 -webkit-column-count: 3;
+  }
+
+  figure {
+  	  height:50%;
+  	  width: 50%;
+  }
+
+}
+
+/*
+ *  Exercise 4.
+ */
+@media screen and (max-width: 799px) {
+  article p {
+    -moz-column-count: 1;
+	 -webkit-column-count: 1;
+  }
+
+  figure {
+  	  visibility:hidden;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+header,footer,
+article,section,
+hgroup,nav,
+figure{
+	/* Giving a display value to the HTML5 rendered elements: */
+	display:block;
+}
+
+body{
+	/* Setting the default text color, size, page background and a font stack: */
+	font-size:0.825em;
+	color:#fcfcfc;
+	background-color:#355664;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Hyperlink Styles: */
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a img{
+	border:none;
+	height: auto;
+	float: inherit;
+}
+
+/* Headings: */
+
+h1,h2,h3{
+	font-family:"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+	text-shadow:0 1px 1px black;
+}
+
+h1{
+	/* The logo text */
+	font-size:3.5em;
+	padding:0.5em 0 0;
+	text-transform:uppercase;
+}
+
+h3{
+	/* The slogan text */
+	font-family:forte,"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+	font-size:2em;
+	font-weight:normal;
+	margin:0 0 1em;
+}
+
+
+h2{
+	font-size:2.2em;
+	font-weight:normal;
+	letter-spacing:0.01em;
+	text-transform:uppercase;
+}
+
+p{
+	line-height:1.5em;
+	padding-bottom:1em;
+}
+
+.line{
+	/* The dividing line: */
+	height:1px;
+	background-color:#24404c;
+	border-bottom:1px solid #416371;
+	margin:1em 0;
+	overflow:hidden;
+}
+
+article .line{
+	/* The dividing line inside of the article is darker: */
+	background-color:#15242a;
+	border-bottom-color:#204656;
+	margin:1.3em 0;
+}
+
+footer .line{
+	margin:2em 0;
+}
+
+
+.clear:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* The navigation styling: */
+
+nav ul li{
+	display:inline;
+}
+
+nav ul li a,
+nav ul li a:visited{
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+/*	text-shadow:0 1px 1px white;
+*/	text-transform:uppercase;
+}
+
+nav ul li a:hover{
+	text-decoration:none;
+	background-color:#f0f0f0;
+}
+
+
+/* Article styles: */
+
+#page{
+	width:960px;
+	margin:0 auto;
+	position:relative;
+}
+
+figure{
+	float:right;
+	overflow:hidden;
+}
+
+/* Footer styles: */
+footer{
+	margin-bottom:30px;
+	text-align:center;
+	font-size:0.825em;
+}
+
+article p:nth-of-type(1)::-moz-selection {
+	background-color:#f00;
+}
+
