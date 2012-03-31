@@ -1,0 +1,42 @@
+
+
+.box {
+  padding: 40px;
+  border: 5px solid #888;
+  height: 100px;
+  width: 360px;
+  overflow: auto;
+  
+  
+  background: -webkit-gradient(linear, left bottom, left top,
+                               from(#eee), color-stop(0.25, #fff),
+                               to(#eee), color-stop(0.75, #fff));
+}
+
+.rounded {
+	
+    border: 5px solid red;
+/* -webkit-box-shadow: inset 20px 20px 50px #777;
+   -moz-box-shadow: inset 20px 20px 50px #777;
+    box-shadow: inset 20px 20px 50px #777;
+*/
+}
+
+.map {
+    
+    text-align: center;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-bottom-width: 3px;
+    border-top-width: 3px;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    padding: 3px;
+    vertical-align: bottom;
+}
