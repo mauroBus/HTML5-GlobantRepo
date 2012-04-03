@@ -48,7 +48,7 @@
                         }
                     };
 
-                    alert( 'Loaded file: ' + data.file.name );
+                    alert( 'Loaded file: ' + data.file.name + ', size: ' + data.file.fileSize / 1024 + ' Kb' );
                 };
             })(file);
             
@@ -56,15 +56,14 @@
             reader.readAsDataURL(file);
 
         } // end for
-
-        alert( ['Just read: ', Math.round(readFileSize / 1024), ' KB'].join('') );
-
+        
+        alert( 'Just read: ' + Math.round(readFileSize / 1024) + ' KB' );
+        
         return false;
     }
     
     var dropboxID = '#dropZone';
     var dropbox = $(dropboxID);
-    //var dropbox = document.querySelector('#dropZone');
     
     document.querySelector(dropboxID).addEventListener('drop', onDrop, false);
     document.querySelector(dropboxID).addEventListener('dragover', onDragOver, false);

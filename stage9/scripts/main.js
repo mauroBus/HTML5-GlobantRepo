@@ -2,12 +2,11 @@
 
 require.config({
 	paths : {
-            jQuery : 'libs/jquery/jquery',
+            //jQuery : 'libs/jquery/jquery',
             DragNDrop: 'dragNdrop',
             GeoLocation: 'geolocation',
             RunCode: 'scripts',
-            WebSocket: 'websocket',
-            CacheApi: 'cacheApi'
+            WebSocket: 'websocket'
         }
 });
 
@@ -15,14 +14,13 @@ require.config({
 
 
 require( [
-        'order!jQuery',
+//        'order!jQuery',
         'DragNDrop',
         'GeoLocation',
         'RunCode',
-        'WebSocket',
-        'CacheApi'
+        'WebSocket'
 	],
-    function($, DragNDrop, GeoLocation, RunCode, WebSocket, CacheApi) {
+    function( DragNDrop, GeoLocation, RunCode, WebSocket, CacheApi) {
         require(['domReady!'], function (doc) {
             console.log('running aplication...');
             
