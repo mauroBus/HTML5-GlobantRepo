@@ -1,44 +1,42 @@
 <!DOCTYPE html> 
 
 <html> 
-	<head> 
-	<title>HTML-Bootcamps-Exerc</title> 
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+   <head> 
+      <title>HTML-Bootcamps-Exerc</title> 
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1"> 
+      
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+      <script src="scripts/jquery/jquery-1.7.1.min.js"></script>
+      <script src="scripts/jquery/jquery.mobile-1.0.1.min.js"></script>
+      
+      <script data-main="scripts/main" src="scripts/require.js"></script>
+   </head> 
 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
-	<script src="scripts/jquery/jquery-1.7.1.min.js"></script>
-	<script src="scripts/jquery/jquery.mobile-1.0.1.min.js"></script>
-	
-        <script data-main="scripts/main" src="scripts/require.js"></script>
-</head> 
 <body> 
-
 	
-
-<div data-role="page" id="page1">
+   <div data-role="page" id="page1">
 	
 	<div data-role="header">
 		<h1>HTML-Bootcamps-Stage3</h1>
-		<!--Incluyo mis javascripts-->
-		<script src='scripts.js'></script>
 	</div><!-- /header -->
 
 	
 	<div data-role="content" data-theme="c">
-		<!input type="button" value="Load Profile" />
+
+		<h1 style="color: red;">Profile Mustache: </h1>
+		<div id="profileMustache">Profesional Profile</div>
+		<h1 style="color: red;">Profile Underscore: </h1>
+		<div id="profileUnderscore">Profesional Profile</div>
+		<h1 style="color: red;">Profile JSmart: </h1>
+		<div id="profileJSmart">Profesional Profile</div>
 	</div><!-- /content -->
-        <h1 style="color: red;">Profile Mustache: </h1>
-        <div id="profileMustache">Profesional Profile</div>
-        <h1 style="color: red;">Profile Underscore: </h1>
-        <div id="profileUnderscore">Profesional Profile</div>
-        <h1 style="color: red;">Profile JSmart: </h1>
-        <div id="profileJSmart">Profesional Profile</div>
 	
 	<div data-role="footer">
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
-</div><!-- /page -->
+        
+   </div><!-- /page -->
 
 
 </body>

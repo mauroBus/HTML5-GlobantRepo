@@ -17,7 +17,7 @@ define( [], function() {
 
         getUnderscore: function() {
             return "<% for (var i=0; i < profProfile.profile.length; ++i){ %>" +
-                        "<% <h1> <%= profProfile.profile[i].name %> </h1> %>" +
+                        "<h1> <%= profProfile.profile[i].name %> </h1>" +
                         "<p> Actual Job: </p> <h2> <%= profProfile.profile[i].actualJob %> </h2>" + 
                         "<p> Last Job: </p> <h2> <%= profProfile.profile[i].lastJob %> </h2>" +
                         "<h3>Extract: </h3> <p> <%= profProfile.profile[i].extract %> </p>" +

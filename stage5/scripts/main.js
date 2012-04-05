@@ -16,11 +16,12 @@ require.config({
 
 require( [
         'domReady',
-	'app'
-	],
-    function(dr, App) {
-        require(['domReady'], function (doc) {
+        'app'
+	      ],
+    function( dr, App) {
+        require(['domReady!'], function (doc) {
             console.log('running MAIN');
+            //$(document).on('click', function(){ alert('asd'); })
             App.run();
         }
     )}
